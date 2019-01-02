@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"version": "1.0.0",
 	"icon": "vscode-insert-line-number.png",
-	"keywords": ["line number"],
+	"keywords": [
+		"line number"
+	],
 	"author": {
 		"name": "anders-liu"
 	},
@@ -17,7 +19,7 @@
 	"bugs": {
 		"url": "https://github.com/anders-liu/vscode-insert-line-number/issues"
 	},
-	"publisher": "anders-liu",
+	"publisher": "andersliu",
 	"engines": {
 		"vscode": "^1.30.0"
 	},
@@ -29,28 +31,35 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
-			"command": "extension.insertLineNumber",
-			"title": "Insert Line Number"
-		}],
+		"commands": [
+			{
+				"command": "extension.insertLineNumber",
+				"title": "Insert Line Number"
+			}
+		],
 		"configuration": {
 			"title": "Insert Line Number",
 			"properties": {
 				"InsertLineNumber.formats": {
 					"type": "array",
-					"default": [{
-						"align": "right",
-						"width": "alignToLast"
-					}, {
-						"width": "alignToLast"
-					}, {}, {
-						"start": "current",
-						"align": "right",
-						"padding": "zero",
-						"width": 6,
-						"prefix": "[CODE_",
-						"suffix": "]    "
-					}],
+					"default": [
+						{
+							"align": "right",
+							"width": "alignToLast"
+						},
+						{
+							"width": "alignToLast"
+						},
+						{},
+						{
+							"start": "current",
+							"align": "right",
+							"padding": "zero",
+							"width": 6,
+							"prefix": "[CODE_",
+							"suffix": "]    "
+						}
+					],
 					"description": "Line number fromats."
 				}
 			}
