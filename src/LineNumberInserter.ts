@@ -115,11 +115,6 @@ function insertLineNumber(
     let ss = selection.start.line;
     let se = selection.end.line;
 
-    if (ss === se) {
-        ss = 0;
-        se = vscode.window.activeTextEditor!.document.lineCount - 1;
-    }
-
     const { start } = getLineNumberRange(config);
 
     vscode.window.activeTextEditor!.edit((editBuilder) => {
