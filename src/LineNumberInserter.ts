@@ -24,7 +24,7 @@ export function execInsertLineNumber(/* context: vscode.ExtensionContext */) {
     let quickPickItems = buildFormatQuickPickItems();
     vscode.window.showQuickPick(quickPickItems, {
         canPickMany: false,
-        placeHolder: "Select a format (Define your own formats under 'InsertLineNumber.formats' in confg file.)"
+        placeHolder: "Select a format (Define your own formats under 'InsertLineNumber.formats' in config file.)"
     }).then(item => {
         if (item) {
             insertLineNumber(item.formatConfig, vscode.window.activeTextEditor!.selection);
