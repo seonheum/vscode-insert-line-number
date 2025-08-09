@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.1.1] - 2025/08/09
+### Added
+- New configuration property `afterLeadingWhitespace` to insert numbers/prefix after existing indentation.
+
 ## [1.1.0] - 2025/08/09
 ### Added
 - New configuration property `skipNumber` allowing insertion of only prefix and suffix without numeric line numbers.

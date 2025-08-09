@@ -53,7 +53,8 @@ function buildDescription(formatConfig: InsertLineNumberConfig.Format): string {
         const minimal: any = {
             skipNumber: true,
             prefix: formatConfig.prefix || "",
-            suffix: formatConfig.suffix || ""
+            suffix: formatConfig.suffix || "",
+            afterLeadingWhitespace: formatConfig.afterLeadingWhitespace || false
         };
         return JSON.stringify(minimal);
     }
@@ -130,10 +131,21 @@ function insertLineNumber(
 
     const { start } = getLineNumberRange(config);
 
-    vscode.window.activeTextEditor!.edit((editBuilder: vscode.TextEditorEdit) => {
+    const editor = vscode.window.activeTextEditor!;
+    const doc = editor.document;
+
+    editor.edit((editBuilder: vscode.TextEditorEdit) => {
         for (let line = ss; line <= se; line++) {
             const lineNumber = formatNumber(start + line - ss, config);
-            editBuilder.insert(new vscode.Position(line, 0), lineNumber);
+
+            if (config.afterLeadingWhitespace) {
+                const textLine = doc.lineAt(line);
+                const match = /^\s*/.exec(textLine.text);
+                const indentLength = match ? match[0].length : 0;
+                editBuilder.insert(new vscode.Position(line, indentLength), lineNumber);
+            } else {
+                editBuilder.insert(new vscode.Position(line, 0), lineNumber);
+            }
         }
     });
 }
@@ -157,7 +169,8 @@ const defaultFormat: InsertLineNumberConfig.Format = {
     width: "normal",
     prefix: "",
     suffix: ":  ",
-    skipNumber: false
+    skipNumber: false,
+    afterLeadingWhitespace: false
 };
 
 let normalizedFormatConfigs: InsertLineNumberConfig.Format[];

@@ -85,5 +85,13 @@ export namespace InsertLineNumberConfig {
          * Default: false
          */
         skipNumber?: boolean;
+
+    /**
+     * If true, keep the original leading whitespace of each line and insert the formatted
+     * line number (or prefix+suffix when skipNumber) AFTER the leading whitespace instead
+     * of at column 0. When false, insertion occurs at column 0 (before indentation).
+     * Default: false
+     */
+    afterLeadingWhitespace?: boolean;
     }
 }

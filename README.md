@@ -85,4 +85,10 @@ Useful when you just want to bulk add comment markers or bullets without actual 
 ##### Default value: `false`
 ##### Type: `boolean`
 
+----
+#### Property: `afterLeadingWhitespace`
+If set to `true`, the formatted line number (or just prefix+suffix when `skipNumber` is true) is inserted AFTER the existing leading whitespace of each line (i.e. after indentation). When `false`, insertion happens at column 0 before the indentation.
+##### Default value: `false`
+##### Type: `boolean`
+
 **Enjoy!**

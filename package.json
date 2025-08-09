@@ -3,7 +3,7 @@
 	"displayName": "Insert Line Number",
 	"description": "Insert line numbers to selected lines or the whole document.",
 	"license": "MIT",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"icon": "vscode-insert-line-number.png",
 	"keywords": [
 		"line number"
@@ -63,9 +63,14 @@
 							"skipNumber": true,
 							"prefix": "// ",
 							"suffix": ""
+						},
+						{
+							"afterLeadingWhitespace": true,
+							"align": "right",
+							"width": "alignToLast"
 						}
 					],
-					"description": "Line number formats. Property skipNumber (boolean) - when true, only prefix + suffix are inserted without numeric line number."
+					"description": "Line number formats. Properties: skipNumber (boolean) - when true, only prefix + suffix are inserted without numeric line number; afterLeadingWhitespace (boolean) - when true, insert after existing leading whitespace (indentation) instead of at column 0."
 				}
 			}
 		}
