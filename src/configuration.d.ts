@@ -78,5 +78,12 @@ export namespace InsertLineNumberConfig {
          * Default: ":  "
          */
         suffix?: string;
+
+        /**
+         * If true, the numeric line number is omitted and only prefix + suffix are inserted per line.
+         * When enabled, width / align / padding are ignored.
+         * Default: false
+         */
+        skipNumber?: boolean;
     }
 }

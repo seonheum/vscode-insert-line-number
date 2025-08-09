@@ -78,4 +78,11 @@ Suffix would be inserted after the formatted line number.
 ##### Default value: `":  "`
 ##### Type: `string`
 
+----
+#### Property: `skipNumber`
+If set to `true`, the numeric line number is omitted and only `prefix + suffix` are inserted for each line.
+Useful when you just want to bulk add comment markers or bullets without actual numbers.
+##### Default value: `false`
+##### Type: `boolean`
+
 **Enjoy!**
