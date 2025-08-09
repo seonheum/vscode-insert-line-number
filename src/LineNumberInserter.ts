@@ -42,6 +42,10 @@ function buildFormatQuickPickItems(): FormatQuickPickItem[] {
 }
 
 function buildSample(formatConfig: InsertLineNumberConfig.Format): string {
+    if (formatConfig.skipNumber) {
+        return `[${(formatConfig.prefix || "") + (formatConfig.suffix || "")}]`;
+    }
+
     const { start, end } = getLineNumberRange(formatConfig);
     return `[${formatNumber(start, formatConfig)}]`
         + ` - [${formatNumber(end, formatConfig)}]`;
@@ -52,8 +56,6 @@ function buildDescription(formatConfig: InsertLineNumberConfig.Format): string {
         // Hide number-related properties in QuickPick when skipNumber is enabled.
         const minimal: any = {
             skipNumber: true,
-            prefix: formatConfig.prefix || "",
-            suffix: formatConfig.suffix || "",
             afterLeadingWhitespace: formatConfig.afterLeadingWhitespace || false
         };
         return JSON.stringify(minimal);
